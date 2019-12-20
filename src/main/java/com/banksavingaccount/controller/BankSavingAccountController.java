@@ -23,9 +23,6 @@ import reactor.core.publisher.Mono;
 @RequestMapping("bank-saving-account")
 public class BankSavingAccountController {
 
-	WebClient client = WebClient.builder().baseUrl("http://localhost:8007/bank-account")
-			.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).build();
-
 	@Autowired
 	BankSavingAccountService bankSavingAccountService;
 

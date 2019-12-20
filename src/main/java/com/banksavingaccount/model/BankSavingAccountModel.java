@@ -21,6 +21,14 @@ public class BankSavingAccountModel {
 	
 	private List<BsaPersonalClientModel> bsaPersonalClientModel;
 	
+	private List<BsaSigner> bsaSigner;
+	
+	public List<BsaSigner> getBsaSigner() {
+		return bsaSigner;
+	}
+	public void setBsaSigner(List<BsaSigner> bsaSigner) {
+		this.bsaSigner = bsaSigner;
+	}
 	public String getId() {
 		return id;
 	}
@@ -56,7 +64,5 @@ public class BankSavingAccountModel {
 	}
 	public void setBsaPersonalClientModel(List<BsaPersonalClientModel> bsaPersonalClientModel) {
 		this.bsaPersonalClientModel = bsaPersonalClientModel;
-	}
-
-		
+	}		
 }
