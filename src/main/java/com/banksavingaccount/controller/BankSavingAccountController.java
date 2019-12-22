@@ -17,6 +17,7 @@ import com.banksavingaccount.model.BankAccountModel;
 import com.banksavingaccount.model.BankSavingAccountModel;
 import com.banksavingaccount.service.BankSavingAccountService;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -25,6 +26,19 @@ public class BankSavingAccountController {
 
 	@Autowired
 	BankSavingAccountService bankSavingAccountService;
+	
+	@GetMapping("/find-all")
+	public Flux<BankSavingAccountModel> findAll() {
+
+		return bankSavingAccountService.findAll();
+	}
+	
+	@GetMapping("/find-by/{document}")
+	public Mono<BankSavingAccountModel> findByDocument(@PathVariable String document) {
+
+		return bankSavingAccountService.findByDocument(document);
+	}
+	
 
 	@PostMapping("/insert")
 	public Mono<BankSavingAccountModel> insertBankSavingAccount(
@@ -34,19 +48,18 @@ public class BankSavingAccountController {
 
 	}
 
-	@GetMapping("/get/{document}")
-	public Mono<BankSavingAccountModel> getByDocument(@PathVariable String document) {
-
-		return bankSavingAccountService.findByDocument(document);
-	}
-
-	@PutMapping("/update-amount/{accountNumber}/{typeOperation}/{accountNumberAmount}")
-	public Mono<BankSavingAccountModel> updateAmountBankSavingAccount(
-			@RequestBody BankSavingAccountModel bankSavingAccountModel, @PathVariable String accountNumber,
-			@PathVariable String typeOperation, @PathVariable Double accountNumberAmount) {
+	@PutMapping("/update-retire")
+	public Mono<BankSavingAccountModel> updateAmountRetire(
+			@RequestBody BankSavingAccountModel bankSavingAccountModel) {
 		
-		return bankSavingAccountService.updateAmountBankSavingAccount(bankSavingAccountModel, accountNumber,
-				typeOperation, accountNumberAmount);
+		return bankSavingAccountService.updateAmountRetire(bankSavingAccountModel);
+	}
+	
+	@PutMapping("/update-deposite")
+	public Mono<BankSavingAccountModel> updateAmountDeposite(
+			@RequestBody BankSavingAccountModel bankSavingAccountModel) {
+		
+		return bankSavingAccountService.updateAmountDeposite(bankSavingAccountModel);
 	}
 
 }

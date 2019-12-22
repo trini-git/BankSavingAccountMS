@@ -9,6 +9,8 @@ public class BsaPersonalClientModel {
 	private String name;
 
 	private String lastName;
+	
+	private String typeClient;
 
 	private String status;
 
@@ -42,6 +44,14 @@ public class BsaPersonalClientModel {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getTypeClient() {
+		return typeClient;
+	}
+
+	public void setTypeClient(String typeClient) {
+		this.typeClient = typeClient;
 	}
 
 	public String getStatus() {
