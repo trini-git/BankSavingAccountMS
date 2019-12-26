@@ -15,7 +15,7 @@ public class BankAccountModel {
 
 	private Double amount;
 
-	private String typeAccountNumber;
+	private String type;
 
 	private String status;
 
@@ -43,12 +43,12 @@ public class BankAccountModel {
 		this.amount = amount;
 	}
 
-	public String getTypeAccountNumber() {
-		return typeAccountNumber;
+	public String getType() {
+		return type;
 	}
 
-	public void setTypeAccountNumber(String typeAccountNumber) {
-		this.typeAccountNumber = typeAccountNumber;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getStatus() {

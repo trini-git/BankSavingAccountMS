@@ -8,6 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.banksavingaccount.model.BankAccountModel;
 import com.banksavingaccount.model.BankSavingAccountModel;
+import com.banksavingaccount.model.BsaPersonalClientModel;
 import com.banksavingaccount.repository.BankSavingAccountRepositoryInterface;
 
 import reactor.core.publisher.Flux;
@@ -20,7 +21,7 @@ public class BankSavingAccountService implements BankSavingAccountServiceInterfa
 	BankSavingAccountRepositoryInterface bankSavingAccountRepositoryInterface;
 
 	BankAccountModel bankAccountModel = new BankAccountModel();
-		
+	
 	@Autowired
 	WebClient client;
 	
@@ -49,10 +50,11 @@ public class BankSavingAccountService implements BankSavingAccountServiceInterfa
 
 	@Override
 	public Mono<BankSavingAccountModel> insertBankSavingAccount(BankSavingAccountModel bankSavingAccountModel) {
-
+		
+				
 		bankAccountModel.setAccountNumber(bankSavingAccountModel.getAccountNumber());
 		bankAccountModel.setAmount(bankSavingAccountModel.getAmount());
-		bankAccountModel.setTypeAccountNumber(bankSavingAccountModel.getTypeAccountNumber());
+		bankAccountModel.setType(bankSavingAccountModel.getType());
 		bankAccountModel.setStatus(bankSavingAccountModel.getStatus());
 
 		insertBankAccount(bankAccountModel).subscribe();

@@ -15,7 +15,7 @@ public class BankSavingAccountModel {
 	
 	private Double amount;
 	
-	private String typeAccountNumber;
+	private String type;
 	
 	private String status;
 	
@@ -53,11 +53,11 @@ public class BankSavingAccountModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getTypeAccountNumber() {
-		return typeAccountNumber;
+	public String getType() {
+		return type;
 	}
-	public void setTypeAccountNumber(String typeAccountNumber) {
-		this.typeAccountNumber = typeAccountNumber;
+	public void setType(String type) {
+		this.type = type;
 	}
 	public List<BsaPersonalClientModel> getBsaPersonalClientModel() {
 		return bsaPersonalClientModel;
